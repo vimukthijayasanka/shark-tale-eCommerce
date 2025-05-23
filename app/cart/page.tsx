@@ -1,25 +1,17 @@
-'use client';
+import ShoppingCartList from "@/app/cart/ShoppingCartList";
 
-import { useState } from "react";
-import { products } from "@/app/product-data";
-import Link from "next/link";
+export default async function CartPage() {
 
-export default function CartPage() {
+    const response = await fetch("http://localhost:3000/api/users/1/cart", {cache: "no-cache"});
+    const cartProducts = await response.json();
 
-    const [cartId] = useState(['p001','p002']);
-    const cartProducts = cartId.map(id => products.find(
-        p => p.id === id
-    )!)
+    console.log(cartProducts);
+
     return (
-        <>
-        <h1>Shopping cart</h1>
-    {
-        cartProducts.map((product) => (
-        <Link key={product.id} href={`/products/${product.id}`}>
-            <h3>{product.name}</h3>
-            <p>{product.price}</p>
-        </Link>
-    ))}
-        </>
+        <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-4xl">
+                <ShoppingCartList initialCartProducts={cartProducts} />
+            </div>
+        </div>
     )
 }

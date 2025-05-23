@@ -5,14 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="261ac58b-9840-4b72-b808-3f50ab17f1da" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/products/[id]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/products/[id]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/cart/ShoppingCartList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/fetchtest/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ProductsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ProductsList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/api/users/[id]/cart/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/users/[id]/cart/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/products/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/products/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/products/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/products/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1725994765651</updated>
       <workItem from="1725994766664" duration="255000" />
-      <workItem from="1747972894662" duration="1621000" />
+      <workItem from="1747972894662" duration="12619000" />
     </task>
     <servers />
   </component>
