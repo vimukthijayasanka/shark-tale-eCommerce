@@ -5,14 +5,11 @@ export const dynamic = 'force-dynamic';
 export default async function ProductsPage(){
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXTAUTH_URL || 'http://localhost:3000';
 
-    const productsRes = await fetch(`${baseUrl}/api/products`, {
-        cache: 'no-store',
+    const productsRes = await fetch(`${baseUrl}/api/products`, { next: { revalidate: 60 }
     });
     const productsData = await productsRes.json();
 
-    const cartRes = await fetch(`${baseUrl}/api/users/1/cart`, {
-        cache: 'no-store',
-    });
+    const cartRes = await fetch(`${baseUrl}/api/users/1/cart`, { next: { revalidate: 60 } });
     const cartProducts = await cartRes.json();
 
     return (

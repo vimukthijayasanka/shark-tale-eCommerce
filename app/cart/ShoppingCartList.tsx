@@ -1,18 +1,27 @@
 'use client';
 
+import Image from "next/image";
+
 export const dynamic = 'force-dynamic';
 
 import { useState } from "react";
 import Link from "next/link";
 import {CartResponse} from "@/app/api/users/[userId]/cart/route";
+import {useRouter} from "next/navigation";
 
 export default function ShoppingCartList({ initialCartProducts }: { initialCartProducts: CartResponse[] }) {
     const [cartProducts, setCardsProducts] = useState(initialCartProducts);
 
-    const subtotal = cartProducts.reduce((sum, p) => sum + p.price * p.quantity, 0);
+    const router = useRouter();
+
+    const subtotal = cartProducts.filter(p => p.stock !== 0) .reduce((sum, p) => sum + p.price * p.quantity, 0);
     const shipping = 5.00;
-    const tax = subtotal * 0.084; // example 8.4%
+    const tax = subtotal * 0.084;
     const total = subtotal + shipping + tax;
+
+    const handleCheckout = () => {
+        router.push(`/checkout?subtotal=${subtotal}`);
+    }
 
     async function removeProduct(productId: string) {
         try {
@@ -48,9 +57,11 @@ export default function ShoppingCartList({ initialCartProducts }: { initialCartP
                         {cartProducts.map((product) => (
                             <li key={product.id} className="flex items-start justify-between gap-4 border-b pb-6">
                                 <div className="flex items-center gap-4">
-                                    <img
-                                        src={"product-images/" + product.imageUrl}
+                                    <Image
+                                        src={"/product-images/" + product.imageUrl}
                                         alt={product.name}
+                                        width={300}
+                                        height={300}
                                         className="h-24 w-24 rounded-md object-cover flex-shrink-0"
                                     />
                                     <div>
@@ -85,14 +96,14 @@ export default function ShoppingCartList({ initialCartProducts }: { initialCartP
                                             </svg>
                                             {product.stock ? "In stock" : "Out of stock"}
                                         </p>
-                                        { product.stock ? <button onClick={()=> removeProduct(product.id)} type="button"
+                                        { <button onClick={()=> removeProduct(product.id)} type="button"
                                                                   className="text-sm hover:underline mt-2
                                                                   bg-red-400 font-sans text-white px-3 py-1 rounded
-                                                                  hover:bg-red-600">Remove</button> : <> </>}
+                                                                  hover:bg-red-600">Remove</button>}
                                     </div>
                                 </div>
                                 <div className="text-right">
-                                    <input type="number" defaultValue={product.quantity} min={1} max={product.stock} className={'w-16 px-2 py-1 text-center text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition'}/>
+                                    <input type="number" defaultValue={product.stock!==0 ? product.quantity : 0} min={1} max={product.stock} className={'w-16 px-2 py-1 text-center text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition'}/>
                                     <p className="mt-2 text-lg font-medium text-gray-900">${(product.price * product.quantity).toFixed(2)}</p>
                                 </div>
                             </li>
@@ -121,7 +132,9 @@ export default function ShoppingCartList({ initialCartProducts }: { initialCartP
                         </dl>
 
                         <div className="mt-6">
-                            <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-md font-medium transition">Checkout</button>
+                            <Link href="/checkout">
+                                <button onClick={handleCheckout} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-md font-medium transition">Checkout</button>
+                            </Link>
                             <p className="text-center text-sm mt-4 text-purple-600 hover:underline">
                                 or <Link href="/products">Continue Shopping →</Link>
                             </p>

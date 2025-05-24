@@ -4,6 +4,7 @@ import { Product } from "@/app/product-data";
 import Link from 'next/link'
 import {useState} from "react";
 import {useRouter} from "next/navigation";
+import Image from "next/image";
 
 export default function ProductsList({products, initialCartProducts} : {products :Product[], initialCartProducts: Product[]} ) {
 
@@ -34,8 +35,10 @@ export default function ProductsList({products, initialCartProducts} : {products
                             href={`/products/${product.id}`}
                             className="pointer-events-none"
                         >
-                            <img
+                            <Image
                                 src={`/product-images/${product.imageUrl}`}
+                                width={300}
+                                height={300}
                                 alt={product.name}
                                 className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80 pointer-events-auto"
                             />
@@ -43,7 +46,9 @@ export default function ProductsList({products, initialCartProducts} : {products
 
                         {/* Button Overlay - allow interaction */}
                         <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex justify-center gap-4 py-3 pointer-events-auto z-10">
-                            <button
+                            { product.stock !== 0 ? (
+                                <>
+                                <button
                                 type="button"
                                 className="bg-blue-500 font-sans text-white px-3 py-1 rounded hover:bg-blue-700"
                                 onClick={(e) => {
@@ -56,11 +61,18 @@ export default function ProductsList({products, initialCartProducts} : {products
                                 className="bg-green-500 font-sans text-white px-3 py-1 rounded hover:bg-green-700"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    router.push(`/products/${product.id}`)}
-                                }> Show Item
+                                    router.push(`/products/${product.id}`)
+                                }}
+                            > Show Item
                             </button>
+                                </>
+                            ) : (
+                                <span className="text-white bg-red-600 p-3 rounded-2xl text-sm font-semibold">Out of Stock</span>
+                            )}
                         </div>
                     </div>
+
+
 
                     <Link href={`/products/${product.id}`}>
                         <div className="mt-4 flex justify-between cursor-pointer">

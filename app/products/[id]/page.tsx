@@ -1,4 +1,5 @@
 import NotFoundPage from "@/app/not-found";
+import Image from "next/image";
 
 export const dynamic = 'force-dynamic';
 
@@ -39,8 +40,10 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
                     {/* Image Gallery */}
                     <div className="">
                         <div className="w-full relative">
-                            <img
+                            <Image
                                 src={`/product-images/${product.imageUrl}`}
+                                width={300}
+                                height={300}
                                 alt={product.name}
                                 className="w-full h-auto object-contain rounded-lg"
                             />
