@@ -32,6 +32,18 @@ export interface CartResponse {
     quantity: number;
 }
 
+export async function OPTIONS(request: NextRequest, { params }: { params: Params }) {
+    return new Response(null, {
+        status: 204,
+        headers: {
+            "Access-Control-Allow-Origin": "https://shark-tale-e-commerce.vercel.app",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+            "Access-Control-Max-Age": "86400" // Cache preflight
+        }
+    });
+}
+
 export async function GET(request:NextRequest, {params}: {params: Params}) {
    const {db} = await connectToDB();
    const userId = params.id;
@@ -197,3 +209,5 @@ export async function DELETE(request: NextRequest, { params }: { params: Params 
         },
     });
 }
+
+
