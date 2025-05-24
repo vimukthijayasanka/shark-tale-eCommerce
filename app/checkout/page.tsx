@@ -1,11 +1,10 @@
 'use client'
 
 import CartPage from "@/app/cart/page";
-import {useSearchParams} from "next/navigation";
 
 export default function CheckoutPage() {
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 p-6 max-w-7xl mx-auto bg-gray-50 min-h-screen mt-20 rounded-3xl">
+        <div className=" grid grid-cols-1 lg:grid-cols-3 gap-8 p-6 max-w-7xl mx-auto bg-gray-50 min-h-screen mt-20 rounded-3xl">
             {/* Checkout Form */}
             <div className="lg:col-span-2 bg-white rounded-xl shadow p-6">
                 <h2 className="text-xl text-gray-900 font-semibold mb-4">Checkout</h2>

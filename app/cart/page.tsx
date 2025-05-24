@@ -6,8 +6,9 @@ export default async function CartPage() {
     let cartProducts = [];
 
     try {
-        const url = `${process.env.NEXT_PUBLIC_SITE_URL}/api/users/1/cart`;
-        const response = await fetch(url, { next: { revalidate: 60 } });
+        const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+        const url = `${baseUrl}/api/users/1/cart`;
+        const response = await fetch(url, {cache: "no-cache"});
 
         if (!response.ok) {
             const text = await response.text();

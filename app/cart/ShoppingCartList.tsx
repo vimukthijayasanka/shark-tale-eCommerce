@@ -40,6 +40,7 @@ export default function ShoppingCartList({ initialCartProducts }: { initialCartP
 
             const result = await response.json();
             setCardsProducts(result.cartProducts); // ✅ update with returned cart
+            router.refresh();
         } catch (error) {
             console.error("Error removing product:", error);
         }
