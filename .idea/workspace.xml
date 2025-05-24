@@ -5,14 +5,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="261ac58b-9840-4b72-b808-3f50ab17f1da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/cart/ShoppingCartList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/fetchtest/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Notification-Modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Store-Navigation.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/users/[userId]/cart/[id]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/users/[userId]/cart/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/company/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/about.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/cover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icons/srilanka-flag.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/beach.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/boy_and_girl_hoodies.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/boy_wear_oversized.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/boy_wear_oversized_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/cap-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/girl_and_boy_hoodies_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/girl_wear_cap.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/girl_wear_cap_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/girl_wear_tee.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/gym.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/hoodie.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/oversize-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/oversize-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/oversized.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/product-images/sunshine.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ProductsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ProductsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/users/[id]/cart/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/users/[id]/cart/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/users/[id]/cart/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/cart/ShoppingCartList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/ShoppingCartList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/cart/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/cart/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/checkout/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/checkout/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/fetchtest/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/product-data.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/product-data.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/products/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/products/[id]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/products/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/products/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +69,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2xTrQkyXo2PFx4yihq0b4ODnSOm" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -57,7 +89,7 @@
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/vimukthi-jayasanka/Documents/dep-13/last-phase/todo-app",
+    "last_opened_file_path": "/home/vimukthi-jayasanka/Documents/dep-13/practice/NextJs-App/shark-tale/public/product-images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -69,6 +101,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/product-images" />
+      <recent name="$PROJECT_DIR$/public/icons" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.Next.js: server-side">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
@@ -100,7 +141,8 @@
       <option name="presentableId" value="Default" />
       <updated>1725994765651</updated>
       <workItem from="1725994766664" duration="255000" />
-      <workItem from="1747972894662" duration="12619000" />
+      <workItem from="1747972894662" duration="40955000" />
+      <workItem from="1748064371035" duration="16277000" />
     </task>
     <servers />
   </component>

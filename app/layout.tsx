@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import NavigationBar from "@/app/naviagtion-bar";
+
+import Example from "@/app/Store-Navigation";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NavigationBar/>
+          <Example/>
       {children}
       </body>
     </html>

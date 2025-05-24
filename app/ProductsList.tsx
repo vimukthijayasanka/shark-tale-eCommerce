@@ -11,7 +11,7 @@ export default function ProductsList({products, initialCartProducts} : {products
     const router = useRouter();
 
    async function addToCart(productId: string){
-       const response = await fetch(`http://localhost:3000/api/users/1/cart`, {
+       const response = await fetch(process.env.NEXT_PUBLIC_SITE_URL + `/api/users/1/cart`, {
             method: 'POST',
             body: JSON.stringify({
                 productId,
@@ -21,7 +21,7 @@ export default function ProductsList({products, initialCartProducts} : {products
             }
         });
         const updatedCartProducts = await response.json();
-        setCartProducts(updatedCartProducts);
+        setCartProducts(updatedCartProducts.products);
     }
 
     return (
@@ -46,15 +46,18 @@ export default function ProductsList({products, initialCartProducts} : {products
                             <button
                                 type="button"
                                 className="bg-blue-500 font-sans text-white px-3 py-1 rounded hover:bg-blue-700"
-                                onClick={() => addToCart(product.id)}
-                            >
-                                Add to Cart
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    addToCart(product.id)}
+                            }> Add to Cart
                             </button>
                             <button
                                 type="button"
                                 className="bg-green-500 font-sans text-white px-3 py-1 rounded hover:bg-green-700"
-                                onClick={() => router.push(`/products/${product.id}`) }>
-                                Show Item
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    router.push(`/products/${product.id}`)}
+                                }> Show Item
                             </button>
                         </div>
                     </div>

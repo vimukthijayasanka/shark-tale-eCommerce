@@ -1,16 +1,40 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import { useState } from "react";
-import { Product } from "@/app/product-data";
 import Link from "next/link";
+import {CartResponse} from "@/app/api/users/[userId]/cart/route";
 
-export default function ShoppingCartList({ initialCartProducts }: { initialCartProducts: Product[] }) {
-    const [cartProducts] = useState(initialCartProducts);
+export default function ShoppingCartList({ initialCartProducts }: { initialCartProducts: CartResponse[] }) {
+    const [cartProducts, setCardsProducts] = useState(initialCartProducts);
 
-    const subtotal = cartProducts.reduce((sum, p) => sum + p.price, 0);
+    const subtotal = cartProducts.reduce((sum, p) => sum + p.price * p.quantity, 0);
     const shipping = 5.00;
     const tax = subtotal * 0.084; // example 8.4%
     const total = subtotal + shipping + tax;
+
+    async function removeProduct(productId: string) {
+        try {
+            const response = await fetch(process.env.NEXT_PUBLIC_SITE_URL + "/api/users/1/cart", {
+                method: "DELETE",
+                body: JSON.stringify({ productId }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                cache: "no-cache",
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to remove product from cart.");
+            }
+
+            const result = await response.json();
+            setCardsProducts(result.cartProducts); // ✅ update with returned cart
+        } catch (error) {
+            console.error("Error removing product:", error);
+        }
+    }
 
     return (
         <div className="bg-white px-6 py-10 lg:px-8 max-w-4xl mx-auto rounded-3xl shadow-md border border-gray-200">
@@ -35,15 +59,15 @@ export default function ShoppingCartList({ initialCartProducts }: { initialCartP
                                                 {product.name}
                                             </h3>
                                         </Link>
-                                        <p className="text-sm text-gray-500">{product.name}, {product.price}</p>
-                                        <p className={`flex items-center text-sm mt-1 ${product.name ? 'text-green-600' : 'text-gray-500'}`}>
+                                        <p className="text-sm text-gray-500">{product.description.slice(0,-1)}</p>
+                                        <p className={`flex items-center text-sm mt-1 ${product.stock ? 'text-green-600' : 'text-red-500'}`}>
                                             <svg
                                                 className="w-4 h-4 mr-1"
                                                 fill="none"
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"
                                             >
-                                                {product.name ? (
+                                                {product.stock ? (
                                                     <path
                                                         strokeLinecap="round"
                                                         strokeLinejoin="round"
@@ -55,20 +79,21 @@ export default function ShoppingCartList({ initialCartProducts }: { initialCartP
                                                         strokeLinecap="round"
                                                         strokeLinejoin="round"
                                                         strokeWidth={2}
-                                                        d="M8 9l3 3-3 3"
+                                                        d="M6 18L18 6M6 6l12 12"
                                                     />
                                                 )}
                                             </svg>
-                                            {product.name ? "In stock" : "Ships in 3–4 weeks"}
+                                            {product.stock ? "In stock" : "Out of stock"}
                                         </p>
-                                        <button className="text-sm text-purple-600 hover:underline mt-2">Remove</button>
+                                        { product.stock ? <button onClick={()=> removeProduct(product.id)} type="button"
+                                                                  className="text-sm hover:underline mt-2
+                                                                  bg-red-400 font-sans text-white px-3 py-1 rounded
+                                                                  hover:bg-red-600">Remove</button> : <> </>}
                                     </div>
                                 </div>
                                 <div className="text-right">
-                                    <select className="border rounded px-2 py-1 text-sm">
-                                        <option>1</option>
-                                    </select>
-                                    <p className="mt-2 text-lg font-medium text-gray-900">${product.price.toFixed(2)}</p>
+                                    <input type="number" defaultValue={product.quantity} min={1} max={product.stock} className={'w-16 px-2 py-1 text-center text-black border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition'}/>
+                                    <p className="mt-2 text-lg font-medium text-gray-900">${(product.price * product.quantity).toFixed(2)}</p>
                                 </div>
                             </li>
                         ))}
