@@ -36,9 +36,12 @@ export async function DELETE(request: NextRequest, { params }: { params: Params 
             cartProducts: [],
         }), {
             status: 404,
-            headers: { "Content-Type": "application/json",
-            ... corsHeaders
-            }
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "https://shark-tale-e-commerce.vercel.app",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization",
+            },
         });
     }
 
@@ -50,8 +53,12 @@ export async function DELETE(request: NextRequest, { params }: { params: Params 
             cartProducts: [],
         }), {
             status: 404,
-            headers: { "Content-Type": "application/json",
-            ... corsHeaders}
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "https://shark-tale-e-commerce.vercel.app",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization",
+            },
         });
     }
 
@@ -102,7 +109,11 @@ export async function DELETE(request: NextRequest, { params }: { params: Params 
         cartProducts: response,
     }), {
         status: 200,
-        headers: { "Content-Type": "application/json",
-        ... corsHeaders,}
+        headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "https://shark-tale-e-commerce.vercel.app",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        },
     });
 }

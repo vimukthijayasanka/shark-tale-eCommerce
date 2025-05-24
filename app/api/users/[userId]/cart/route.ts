@@ -40,7 +40,12 @@ export async function GET(request:NextRequest, {params}: {params: Params}) {
     if (!userCart) {
         return new Response(JSON.stringify([]),{
             status: 200,
-            headers: {"Content-Type": "application/json",}
+            headers: {
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Origin": "https://shark-tale-e-commerce.vercel.app",
+                "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+                "Access-Control-Allow-Headers": "Content-Type, Authorization",
+            },
         });
     }
 
@@ -71,7 +76,12 @@ export async function GET(request:NextRequest, {params}: {params: Params}) {
 
     return new Response(JSON.stringify(response), {
             status: 200,
-            headers: {"Content-Type": "application/json"}
+        headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "https://shark-tale-e-commerce.vercel.app",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        },
         })
 }
 
@@ -124,7 +134,12 @@ export async function POST(request: NextRequest, { params }: { params: Params })
     const updatedCart = await db.collection('carts').findOne({ userId });
     return new Response(JSON.stringify(updatedCart?.cartItems || []), {
         status: 200,
-        headers: { "Content-Type": "application/json" }
+        headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "https://shark-tale-e-commerce.vercel.app",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        },
     });
 }
 
@@ -174,6 +189,11 @@ export async function DELETE(request: NextRequest, { params }: { params: Params 
         cartProducts: response,
     }), {
         status: 200,
-        headers: { "Content-Type": "application/json" }
+        headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "https://shark-tale-e-commerce.vercel.app",
+            "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type, Authorization",
+        },
     });
 }
