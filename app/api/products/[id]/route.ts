@@ -7,7 +7,7 @@ type Params = {
 
 // CORS Headers
 export const corsHeaders = {
-    "Access-Control-Allow-Origin": "*", // or specific domain in production
+    "Access-Control-Allow-Origin": "https://shark-tale-e-commerce.vercel.app", // or specific domain in production
     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
