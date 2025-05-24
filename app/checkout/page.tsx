@@ -4,9 +4,6 @@ import CartPage from "@/app/cart/page";
 import {useSearchParams} from "next/navigation";
 
 export default function CheckoutPage() {
-    const searchParams = useSearchParams();
-    const subtotal = searchParams.get("subtotal");
-
     return (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 p-6 max-w-7xl mx-auto bg-gray-50 min-h-screen mt-20 rounded-3xl">
             {/* Checkout Form */}
@@ -55,7 +52,7 @@ export default function CheckoutPage() {
                 <div className="mt-6 border-t pt-4 text-gray-800 border-amber-800">
                     <div className="flex justify-between font-semibold">
                         <p>Total</p>
-                        <p>${subtotal}</p>
+                        <p>$60.88</p>
                     </div>
                     <div className="flex justify-between font-semibold">
                         <CartPage/>
