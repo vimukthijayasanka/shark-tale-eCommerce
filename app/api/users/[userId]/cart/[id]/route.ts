@@ -1,5 +1,6 @@
 import {NextRequest} from "next/server";
 import {connectToDB} from "@/app/api/db";
+import {corsHeaders} from "@/app/api/products/[id]/route";
 
 type Params = { id: string; }
 
@@ -35,7 +36,9 @@ export async function DELETE(request: NextRequest, { params }: { params: Params 
             cartProducts: [],
         }), {
             status: 404,
-            headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json",
+            ... corsHeaders
+            }
         });
     }
 
@@ -47,7 +50,8 @@ export async function DELETE(request: NextRequest, { params }: { params: Params 
             cartProducts: [],
         }), {
             status: 404,
-            headers: { "Content-Type": "application/json" }
+            headers: { "Content-Type": "application/json",
+            ... corsHeaders}
         });
     }
 
@@ -98,6 +102,7 @@ export async function DELETE(request: NextRequest, { params }: { params: Params 
         cartProducts: response,
     }), {
         status: 200,
-        headers: { "Content-Type": "application/json" }
+        headers: { "Content-Type": "application/json",
+        ... corsHeaders,}
     });
 }

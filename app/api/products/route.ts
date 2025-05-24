@@ -1,4 +1,5 @@
 import { connectToDB } from "@/app/api/db";
+import {corsHeaders} from "@/app/api/products/[id]/route";
 
 export async function GET() {
     const {db} = await connectToDB();
@@ -8,5 +9,6 @@ export async function GET() {
         {status: 200,
         headers: {
             "Content-Type": "application/json",
+            ... corsHeaders,
         }});
 }
